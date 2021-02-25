@@ -17,7 +17,7 @@
   "author": "Ruben Hakopian <ruben.hakopian@gmail.com>",
   "license": "Propriatery",
   "dependencies": {
-    "@kubevious/ui-framework": "^1.0.3",
+    "@kubevious/ui-framework": "^1.0.10",
     "the-lodash": "^2.0.0",
     "the-promise": "^2.0.4"
   },
