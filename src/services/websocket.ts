@@ -1,7 +1,7 @@
 import { IService } from '@kubevious/ui-framework'
 
 export interface IWebSocketService extends IService {
-    subscribe(target: any, cb: (value: any) => any) : WebSocketSubscription;
+    subscribe(target: WebSocketTarget, cb: (value: any) => any) : WebSocketSubscription;
     scope(cb: (value: any, target: WebSocketTarget) => any) : WebSocketScope;
 }
 
