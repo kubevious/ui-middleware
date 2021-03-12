@@ -12,11 +12,11 @@ export interface IDiagramService extends IService {
 
     fetchHistoryRange(cb: (data: any) => any) : void;
 
-    fetchHistoryTimeline(from: any, to: any, cb: (data: any) => any) : void;
+    fetchHistoryTimeline?(from: any, to: any, cb: (data: any) => any) : void;
 
-    subscribeTimelinePreview(cb: (data: any) => any) : void;
+    subscribeTimelinePreview?(cb: (data: any) => any) : void;
 
-    fetchHistoryTimelinePreview(cb: (data: any) => any) : void;
+    fetchHistoryTimelinePreview?(cb: (data: any) => any) : void;
 
     fetchHistorySnapshot(date: string, cb: (data: any) => any) : void;
 
