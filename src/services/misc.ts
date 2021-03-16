@@ -1,4 +1,3 @@
-import { Promise } from 'the-promise';
 import { IService } from '@kubevious/ui-framework'
 
 export interface IMiscService extends IService {

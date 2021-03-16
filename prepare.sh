@@ -7,6 +7,6 @@ rm -rf node_modules/
 rm -rf dist/
 
 npm install
-npm update the-lodash the-promise @kubevious/ui-framework 
+npm update @kubevious/ui-framework 
 
 ${MY_DIR}/build.sh
