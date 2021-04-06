@@ -23,12 +23,4 @@ export interface IDiagramService extends IService {
     fetchHistoryAlerts(dn: string, date: any, cb: (data: any) => any) : void;
 
 
-    fetchSearchResults(criteria: any, cb: (data: any) => any) : void;
-
-    autocompleteLabelKeys(criteria: string, cb: (data: string[]) => any) : void;
-    autocompleteLabelValues(key: string, criteria: string, cb: (data: string[]) => any) : void;
-
-    autocompleteAnnotationKeys(criteria: string, cb: (data: string[]) => any) : void;
-    autocompleteAnnotationValues(key: string, criteria: string, cb: (data: string[]) => any) : void;
-
 }
