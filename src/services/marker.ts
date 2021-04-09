@@ -43,6 +43,13 @@ export type MarkerResult = {
     logs: MarkerLog[];
 };
 
+
+export interface MarkerResultSubscriber
+{ 
+    update: (markerName : string) => void,
+    close: () => void
+}
+
 export interface IMarkerService extends IService {
     backendFetchMarkerList(cb: (data: any) => any) : void;
     backendFetchMarker(id: string, cb: (data: any) => any) : void;
@@ -52,6 +59,6 @@ export interface IMarkerService extends IService {
     backendImportItems(markers: any, cb: (data: any) => any) : void;
 
     subscribeMarkerStatuses(cb: ((items: MarkerStatus[]) => void)) : void;
-    subscribeMarkerResult(name: string | null, cb: ((result: MarkerResult) => void)) : void;
+    subscribeMarkerResult(cb: ((result: MarkerResult) => void)) : MarkerResultSubscriber;
 }
 

@@ -45,6 +45,12 @@ export type RuleResult = {
 };
 
 
+export interface RuleResultSubscriber
+{ 
+    update: (ruleName : string) => void,
+    close: () => void
+}
+
 export interface IRuleService extends IService {
     backendFetchRuleList(cb: (data: any) => any) : void;
     backendFetchRule(id: string, cb: (data: any) => any) : void;
@@ -54,6 +60,5 @@ export interface IRuleService extends IService {
     backendImportItems(rules: any, cb: (data: any) => any) : void;
 
     subscribeRuleStatuses(cb: ((items: RuleStatus[]) => void)) : void;
-    subscribeRuleResult(name: string | null, cb: ((result: RuleResult) => void)) : void;
+    subscribeRuleResult(cb: ((result: RuleResult) => void)) : RuleResultSubscriber;
 }
-
