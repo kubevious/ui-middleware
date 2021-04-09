@@ -17,7 +17,7 @@
   "author": "Ruben Hakopian <ruben.hakopian@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "@kubevious/ui-framework": "^1.0.24"
+    "@kubevious/ui-framework": "^1.0.39"
   },
   "devDependencies": {
     "@types/mocha": "^8.0.3",
