@@ -18,6 +18,11 @@ export interface MarkersExportData {
     items: MarkerConfig[]
 }
 
+export interface MarkersImportData {
+    data: MarkersExportData,
+    deleteExtra?: boolean
+}
+
 export interface MarkerStatus {
     name: string;
     shape: string;
@@ -48,7 +53,7 @@ export interface IMarkerService extends IService {
     createMarker(config: MarkerConfig, name: string) : Promise<MarkerConfig>;
     deleteMarker(name: string) : Promise<void>;
     exportMarkers() : Promise<MarkersExportData>;
-    importMarkers(data: MarkersExportData) : Promise<void>;
+    importMarkers(data: MarkersImportData) : Promise<void>;
 
     getMarkerStatuses() : Promise<MarkerStatus[]>;
     getMarkerResult(name: string) : Promise<MarkerResult>;
