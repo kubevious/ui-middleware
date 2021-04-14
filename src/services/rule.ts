@@ -1,34 +1,38 @@
 import { IService } from '@kubevious/ui-framework'
 
-export type RuleStatus = {
-    script?: string;
-    target?: string;
-    name?: string;
-    propagate?: boolean;
-    shape?: string;
-    color?: string;
-    item_count?: number;
+export interface RuleListItem {
+    name: string,
+    enabled: boolean
+}
+
+export interface RuleConfig {
+    name: string;
+    target: string;
+    script: string;
+    enabled: boolean;
+}
+
+export interface RulesExportData {
+    kind: 'rules',
+    items: RuleConfig[]
+}
+
+export interface RuleStatus {
+    name: string;
+    enabled: boolean;
+    is_current: boolean;
     error_count?: number;
-    enabled?: boolean;
-    is_current?: boolean;
+    item_count?: number;
 };
 
-
-export type DnOptions = {
-    relativeTo?: string;
-};
-
-
-export interface RuleItem {
+export interface RuleResultItem {
     dn: string;
-    id?: number;
     errors?: number;
     warnings?: number;
-    options?: DnOptions;
     markers?: string[];
 }
 
-export type RuleLog = {
+export interface RuleResultLog {
     kind: string;
     msg: {
         source: string[];
@@ -37,11 +41,11 @@ export type RuleLog = {
 };
 
 export type RuleResult = {
-    name?: string;
-    items: RuleItem[];
-    item_count: number;
-    is_current?: boolean;
-    logs: RuleLog[];
+    name: string;
+    items: RuleResultItem[];
+    is_current: boolean;
+    error_count?: number;
+    logs: RuleResultLog[];
 };
 
 
@@ -51,13 +55,16 @@ export interface RuleResultSubscriber
     close: () => void
 }
 
-export interface IRuleService extends IService {
-    backendFetchRuleList(cb: (data: any) => any) : void;
-    backendFetchRule(id: string, cb: (data: any) => any) : void;
-    backendCreateRule(config: any, name: string, cb: (data: any) => any) : void;
-    backendDeleteRule(id: string, cb: (data: any) => any) : void;
-    backendExportItems(cb: (data: any) => any) : void;
-    backendImportItems(rules: any, cb: (data: any) => any) : void;
+export interface IRuleService<TRuleConfig extends RuleConfig = RuleConfig> extends IService {
+    getRuleList() : Promise<RuleListItem[]>;
+    getRule(name: string) : Promise<TRuleConfig | null>;
+    createRule(config: TRuleConfig, name: string) : Promise<TRuleConfig>;
+    deleteRule(name: string) : Promise<void>;
+    exportRules() : Promise<RulesExportData>;
+    importRules(data: RulesExportData) : Promise<void>;
+
+    getRulesStatuses() : Promise<RuleStatus[]>;
+    getRuleResult(name: string) : Promise<RuleResult>;
 
     subscribeRuleStatuses(cb: ((items: RuleStatus[]) => void)) : void;
     subscribeRuleResult(cb: ((result: RuleResult) => void)) : RuleResultSubscriber;

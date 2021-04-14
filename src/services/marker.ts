@@ -1,46 +1,37 @@
 import { IService } from '@kubevious/ui-framework'
 
+export interface MarkerListItem {
+    name: string;
+    shape: string;
+    color: string;
+}
 
-export type MarkerStatus = {
-    script?: string;
-    target?: string;
-    name?: string;
-    propagate?: boolean;
-    shape?: string;
-    color?: string;
-    item_count?: number;
-    error_count?: number;
-    enabled?: boolean;
-    is_current?: boolean;
-};
+export interface MarkerConfig {
+    name: string;
+    shape: string;
+    color: string;
+    propagate: boolean;
+}
 
-export type DnOptions = {
-    relativeTo?: string;
-};
+export interface MarkersExportData {
+    kind: 'markers',
+    items: MarkerConfig[]
+}
 
-export interface MarkerItem {
-    dn: string;
-    id?: number;
-    errors?: number;
-    warnings?: number;
-    options?: DnOptions;
-    markers?: string[];
-};
-
-export type MarkerLog = {
-    kind: string;
-    msg: {
-        source: string[];
-        msg: string;
-    };
-};
-
-export type MarkerResult = {
-    name?: string;
-    items: MarkerItem[];
+export interface MarkerStatus {
+    name: string;
+    shape: string;
+    color: string;
     item_count: number;
-    is_current?: boolean;
-    logs: MarkerLog[];
+};
+
+export interface MarkerResultItem {
+    dn: string;
+};
+
+export interface MarkerResult {
+    name: string;
+    items: MarkerResultItem[];
 };
 
 
@@ -51,12 +42,16 @@ export interface MarkerResultSubscriber
 }
 
 export interface IMarkerService extends IService {
-    backendFetchMarkerList(cb: (data: any) => any) : void;
-    backendFetchMarker(id: string, cb: (data: any) => any) : void;
-    backendCreateMarker(config: any, targetName: string, cb: (data: any) => any) : void;
-    backendDeleteMarker(id: string, cb: (data: any) => any) : void;
-    backendExportItems(cb: (data: any) => any) : void;
-    backendImportItems(markers: any, cb: (data: any) => any) : void;
+
+    getMarkerList() : Promise<MarkerListItem[]>;
+    getMarker(name: string) : Promise<MarkerConfig | null>;
+    createMarker(config: MarkerConfig, name: string) : Promise<MarkerConfig>;
+    deleteMarker(name: string) : Promise<void>;
+    exportMarkers() : Promise<MarkersExportData>;
+    importMarkers(data: MarkersExportData) : Promise<void>;
+
+    getMarkerStatuses() : Promise<MarkerStatus[]>;
+    getMarkerResult(name: string) : Promise<MarkerResult>;
 
     subscribeMarkerStatuses(cb: ((items: MarkerStatus[]) => void)) : void;
     subscribeMarkerResult(cb: ((result: MarkerResult) => void)) : MarkerResultSubscriber;
