@@ -1,4 +1,4 @@
-import { IService } from '@kubevious/ui-framework'
+import { IService } from '../common-types'
 
 export interface ISearchService extends IService {
 

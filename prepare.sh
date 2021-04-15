@@ -7,6 +7,5 @@ rm -rf node_modules/
 rm -rf dist/
 
 npm install
-npm update @kubevious/ui-framework 
 
 ${MY_DIR}/build.sh
