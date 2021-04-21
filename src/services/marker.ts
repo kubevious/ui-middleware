@@ -1,4 +1,4 @@
-import { IService } from '../common-types'
+import { IEditorService, IService } from '../common-types'
 
 export interface MarkerListItem {
     name: string;
@@ -46,19 +46,17 @@ export interface MarkerResultSubscriber
     close: () => void
 }
 
-export interface IMarkerService extends IService {
+export interface IMarkerService extends IEditorService {
+    getList: () => Promise<MarkerListItem[]>;
+    getItem: (name: string) => Promise<MarkerConfig | null>;
+    createItem: (config: MarkerConfig, name: string) => Promise<any>;
+    deleteItem: (name: string) => Promise<void>;
+    exportItems: () => Promise<MarkersExportData>;
+    importItems: (data: MarkersImportData) => Promise<void>;
 
-    getMarkerList() : Promise<MarkerListItem[]>;
-    getMarker(name: string) : Promise<MarkerConfig | null>;
-    createMarker(config: MarkerConfig, name: string) : Promise<MarkerConfig>;
-    deleteMarker(name: string) : Promise<void>;
-    exportMarkers() : Promise<MarkersExportData>;
-    importMarkers(data: MarkersImportData) : Promise<void>;
+    getItemStatuses: () => Promise<MarkerStatus[]>;
+    getItemResult: (name: string) => Promise<MarkerResult>;
 
-    getMarkerStatuses() : Promise<MarkerStatus[]>;
-    getMarkerResult(name: string) : Promise<MarkerResult>;
-
-    subscribeMarkerStatuses(cb: ((items: MarkerStatus[]) => void)) : void;
-    subscribeMarkerResult(cb: ((result: MarkerResult) => void)) : MarkerResultSubscriber;
+    subscribeItemStatuses: (cb: (items: MarkerStatus[]) => void) => void;
+    subscribeItemResult: (cb: (result: MarkerResult) => void) => MarkerResultSubscriber;
 }
-

@@ -1,4 +1,4 @@
-import { IService } from '../common-types'
+import { IEditorService, IService } from '../common-types'
 
 export interface RuleListItem {
     name: string,
@@ -60,17 +60,18 @@ export interface RuleResultSubscriber
     close: () => void
 }
 
-export interface IRuleService<TRuleConfig extends RuleConfig = RuleConfig> extends IService {
-    getRuleList() : Promise<RuleListItem[]>;
-    getRule(name: string) : Promise<TRuleConfig | null>;
-    createRule(config: TRuleConfig, name: string) : Promise<TRuleConfig>;
-    deleteRule(name: string) : Promise<void>;
-    exportRules() : Promise<RulesExportData>;
-    importRules(data: RulesImportData) : Promise<void>;
+export interface IRuleService<TRuleConfig extends RuleConfig = RuleConfig> extends IEditorService {
+    getList: () => Promise<RuleListItem[]>;
+    getItem: (name: string) => Promise<TRuleConfig | null>;
+    createItem: (config: TRuleConfig, name: string) => Promise<TRuleConfig>;
+    deleteItem: (name: string) => Promise<void>;
+    exportItems: () => Promise<RulesExportData>;
+    importItems: (data: RulesImportData) => Promise<void>;
 
-    getRulesStatuses() : Promise<RuleStatus[]>;
-    getRuleResult(name: string) : Promise<RuleResult>;
+    getItemStatuses: () => Promise<RuleStatus[]>;
+    getItemResult: (name: string) => Promise<RuleResult>;
 
-    subscribeRuleStatuses(cb: ((items: RuleStatus[]) => void)) : void;
-    subscribeRuleResult(cb: ((result: RuleResult) => void)) : RuleResultSubscriber;
+    subscribeItemStatuses: (cb: (items: RuleStatus[]) => void) => void;
+    subscribeItemResult: (cb: (result: RuleResult) => void) => RuleResultSubscriber;
 }
+
