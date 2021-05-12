@@ -42,7 +42,7 @@ export interface MarkerResult {
 
 export interface MarkerResultSubscriber
 { 
-    update: (markerName : string) => void,
+    update: (markerName : string | null) => void,
     close: () => void
 }
 

@@ -56,7 +56,7 @@ export type RuleResult = {
 
 export interface RuleResultSubscriber
 { 
-    update: (ruleName : string) => void,
+    update: (ruleName : string | null) => void,
     close: () => void
 }
 
