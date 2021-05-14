@@ -32,6 +32,7 @@ export interface RuleStatus {
 
 export interface RuleResultItem {
     dn: string;
+    clusterId?: string;
     errors?: number;
     warnings?: number;
     markers?: string[];
