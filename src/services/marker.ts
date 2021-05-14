@@ -32,6 +32,7 @@ export interface MarkerStatus {
 
 export interface MarkerResultItem {
     dn: string;
+    clusterId?: string;
 };
 
 export interface MarkerResult {
