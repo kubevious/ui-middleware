@@ -1,6 +1,8 @@
 import { IService } from '../common-types'
 
 export interface IUserService extends IService {
-    accessToken(): string
-    userData(): string
+    authorizationHeader(): string,
+    accessToken(): string,
+    userData(): string,
+    accessTokenData() : Record<string, any> | undefined,
 }
