@@ -8,4 +8,7 @@ rm -rf dist/
 
 npm install
 
+npm update \
+    the-promise
+
 ${MY_DIR}/build.sh

@@ -1,13 +1,26 @@
+import { Promise } from 'the-promise';
 import { IService } from '../common-types'
 
 export interface ISearchService extends IService {
 
-    fetchSearchResults(criteria: any, cb: (data: any) => any) : void;
+    fetchSearchResults(criteria: any) : Promise<SearchQueryResult>;
 
-    autocompleteLabelKeys(criteria: string, cb: (data: string[]) => any) : void;
-    autocompleteLabelValues(key: string, criteria: string, cb: (data: string[]) => any) : void;
+    autocompleteLabelKeys(criteria: string) : Promise<string[]>;
+    autocompleteLabelValues(key: string, criteria: string)  : Promise<string[]>;
 
-    autocompleteAnnotationKeys(criteria: string, cb: (data: string[]) => any) : void;
-    autocompleteAnnotationValues(key: string, criteria: string, cb: (data: string[]) => any) : void;
+    autocompleteAnnotationKeys(criteria: string) : Promise<string[]>;
+    autocompleteAnnotationValues(key: string, criteria: string) : Promise<string[]>;
+}
 
+export interface SearchQueryResult
+{
+    wasFiltered: boolean,
+    totalCount: number,
+    results: SearchQueryItem[]
+}
+
+export interface SearchQueryItem
+{
+    dn: string,
+    clusterId?: string
 }
