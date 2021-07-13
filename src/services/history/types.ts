@@ -1,19 +1,19 @@
-interface HistoryResult
+export interface HistoryNodeResult
 {
-    entries: HistoryEntry[]
+    entries: HistoryNodeEntry[]
 }
 
-interface HistoryEntry
+export interface HistoryNodeEntry
 {
     snapshotId: string,
     date: string,
     present: boolean,
 
-    node?: HistoryEntryNode,
+    node?: HistoryNodeEntryNode,
     props?: string[]
 }
 
-interface HistoryEntryNode
+export interface HistoryNodeEntryNode
 {
     markers?: string[],
     alertCount: {
