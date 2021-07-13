@@ -7,17 +7,12 @@ export interface HistoryNodeEntry
 {
     snapshotId: string,
     date: string,
-    present: boolean,
+    notPresent?: boolean,
 
-    node?: HistoryNodeEntryNode,
-    props?: string[]
-}
-
-export interface HistoryNodeEntryNode
-{
     markers?: string[],
-    alertCount: {
+    alertCount?: {
         warn: number,
         error: number
     }
+    props?: string[]
 }
