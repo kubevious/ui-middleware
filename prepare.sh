@@ -6,9 +6,9 @@ cd $MY_DIR
 rm -rf node_modules/
 rm -rf dist/
 
-npm install
+yarn
 
-npm update \
+yarn upgrade --latest \
     the-promise
 
 ${MY_DIR}/build.sh
