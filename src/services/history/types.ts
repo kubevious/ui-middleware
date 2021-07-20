@@ -9,6 +9,7 @@ export interface HistoryNodeEntry
     date: string,
     notPresent?: boolean,
 
+    flags?: string[],
     markers?: string[],
     alertCount?: {
         warn: number,
