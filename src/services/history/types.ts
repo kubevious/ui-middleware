@@ -18,10 +18,10 @@ export interface HistoryHierarchyEntry
     snapshotId: string;
     date: string;
 
-    nodes: HistoryHierarchyEntry[];
+    nodes: HistoryHierarchyNodeEntry[];
 }
 
-export interface HistoryHierarchyEntry extends HistoryNodeEntryChanges
+export interface HistoryHierarchyNodeEntry extends HistoryNodeEntryChanges
 {
     dn: string;
 }
