@@ -1,19 +1,34 @@
 export interface HistoryNodeResult
 {
-    entries: HistoryNodeEntry[]
+    entries: HistoryNodeEntry[];
 }
 
 export interface HistoryHierarchyResult
 {
-    entries: HistoryHierarchyEntry[]
+    entries: HistoryHierarchyEntry[];
 }
 
-export interface HistoryNodeEntry
+export interface HistoryNodeEntry extends HistoryNodeEntryChanges
 {
-    snapshotId: string,
-    date: string,
-    notPresent?: boolean,
+    snapshotId: string;
+    date: string;
+}
+export interface HistoryHierarchyEntry
+{
+    snapshotId: string;
+    date: string;
 
+    nodes: HistoryHierarchyEntry[];
+}
+
+export interface HistoryHierarchyEntry extends HistoryNodeEntryChanges
+{
+    dn: string;
+}
+
+export interface HistoryNodeEntryChanges
+{
+    notPresent?: boolean,
     flags?: string[],
     markers?: string[],
     alertCount?: {
@@ -23,10 +38,7 @@ export interface HistoryNodeEntry
     props?: string[]
 }
 
-export interface HistoryHierarchyEntry extends HistoryNodeEntry
-{
-    dn: string,
-}
+
 
 export interface HistorySnapshotInfo
 { 
