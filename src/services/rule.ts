@@ -1,4 +1,4 @@
-import { IEditorService, IService } from '../common-types'
+import { IService } from '../common-types'
 
 export interface RuleListItem {
     name: string,
@@ -61,7 +61,7 @@ export interface RuleResultSubscriber
     close: () => void
 }
 
-export interface IRuleService<TRuleConfig extends RuleConfig = RuleConfig> extends IEditorService {
+export interface IRuleService<TRuleConfig extends RuleConfig = RuleConfig> extends IService {
     getList: () => Promise<RuleListItem[]>;
     getItem: (name: string) => Promise<TRuleConfig | null>;
     createItem: (config: TRuleConfig, name: string) => Promise<TRuleConfig>;

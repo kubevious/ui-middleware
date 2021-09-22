@@ -1,4 +1,4 @@
-import { IEditorService, IService } from '../common-types'
+import { IService } from '../common-types'
 
 export interface MarkerListItem {
     name: string;
@@ -47,7 +47,7 @@ export interface MarkerResultSubscriber
     close: () => void
 }
 
-export interface IMarkerService extends IEditorService {
+export interface IMarkerService extends IService {
     getList: () => Promise<MarkerListItem[]>;
     getItem: (name: string) => Promise<MarkerConfig | null>;
     createItem: (config: MarkerConfig, name: string) => Promise<any>;

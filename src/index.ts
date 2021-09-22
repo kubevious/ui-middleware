@@ -1,5 +1,6 @@
 export { IWebSocketService, WebSocketTarget, WebSocketScope, WebSocketSubscription } from './services/websocket'
 
+export { IDiagramBrowserService } from './services/diagram-browser'
 export { IDiagramService } from './services/diagram'
 export { ISearchService } from './services/search'
 export { IMarkerService } from './services/marker'
