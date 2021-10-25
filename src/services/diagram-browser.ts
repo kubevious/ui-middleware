@@ -1,3 +1,4 @@
+import { NodeKind } from '@kubevious/entity-meta';
 import { IService } from '../common-types'
 
 export interface AlertCounter {
@@ -7,10 +8,10 @@ export interface AlertCounter {
 
 export interface NodeConfig {
     dn: string;
-    kind: string;
+    kind: NodeKind;
     rn: string;
     name?: string;
-    order?: number;
+    order?: number; // TODO: should go away
     childrenCount: number;
     markers?: string[];
     flags?: string[];
