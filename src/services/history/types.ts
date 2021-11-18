@@ -1,6 +1,7 @@
 export interface HistoryNodeResult
 {
     entries: HistoryNodeEntry[];
+    nextToken?: string;
 }
 
 export interface HistoryHierarchyResult
