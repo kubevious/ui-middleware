@@ -7,6 +7,7 @@ export interface HistoryNodeResult
 export interface HistoryHierarchyResult
 {
     entries: HistoryHierarchyEntry[];
+    nextToken?: string;
 }
 
 export interface HistoryNodeEntry extends HistoryNodeEntryChanges
