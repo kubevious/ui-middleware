@@ -8,6 +8,6 @@ export { IMiscService } from './services/misc'
 export { IHistoryService } from './services/history'
 
 export { IValidatorConfigService } from './services/validator-config'
-export { IClusterReportingStatusService } from './services/cluster-reporting-status'
+export { IClusterReportingStatusService, ClusterReportingStatus } from './services/cluster-reporting-status'
 
 export { WebSocketKind } from './websocket-subscriptions';
