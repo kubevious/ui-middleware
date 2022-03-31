@@ -6,8 +6,20 @@ export interface IValidatorConfigService extends IService {
 
     getValidators() : Promise<ValidationConfig>;
 
-    getValidator(validator: ValidatorID) : Promise<ValidationConfig>;
+    getValidator(validatorId: ValidatorID) : Promise<ValidatorItem>;
 
-    updateValidator(validator: ValidatorID, setting: ValidatorSetting) : Promise<any>;
+    updateValidator(item: ValidatorItem) : Promise<void>;
 
+}
+
+
+export interface ValidatorIdBody
+{
+    validator: ValidatorID;
+}
+
+export interface ValidatorItem
+{
+    validator: ValidatorID;
+    setting: ValidatorSetting;
 }
