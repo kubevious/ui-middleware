@@ -11,7 +11,7 @@ export interface IBackendStatusService extends IService {
 export interface BackendMetricItem {
     category: string;
     name: string;
-    value: string | number | Date;
+    value: string | number | boolean | Date;
 }
 
 export interface BackendMetricsResponse {
