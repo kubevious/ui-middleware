@@ -26,6 +26,7 @@ export interface WorldviousNewVersionInfo {
     changes: string[];
     features: string[];
     url: string;
+    content?: string;
 }
 export interface WorldviousFeedbackQuestion {
     kind: WorldviousNotificationKind;
