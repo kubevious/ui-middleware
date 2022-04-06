@@ -40,7 +40,7 @@ export interface WorldviousFeedbackQuestion {
     kind: WorldviousFeedbackQuestionKind;
     id: string;
     text: string;
-    options?: string;
+    options?: string[];
     optional?: boolean;
 }
 export interface WorldviousFeedbackRequest {
