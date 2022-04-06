@@ -19,6 +19,14 @@ export enum WorldviousNotificationKind {
     message = 'message',
 }
 
+
+export enum WorldviousFeedbackQuestionKind {
+    input = "input",
+    rate = "rate",
+    single_select = "single-select",
+    multi_select = "multi-select",
+}
+
 export interface WorldviousNewVersionInfo {
     kind: WorldviousNotificationKind;
     name: string;
@@ -29,7 +37,7 @@ export interface WorldviousNewVersionInfo {
     content?: string;
 }
 export interface WorldviousFeedbackQuestion {
-    kind: WorldviousNotificationKind;
+    kind: WorldviousFeedbackQuestionKind;
     id: string;
     text: string;
     options?: string;
