@@ -41,6 +41,7 @@ export interface WorldviousFeedbackQuestion {
     id: string;
     text: string;
     options?: string;
+    optional?: boolean;
 }
 export interface WorldviousFeedbackRequest {
     kind: WorldviousNotificationKind;
