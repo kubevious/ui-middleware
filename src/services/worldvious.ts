@@ -35,7 +35,7 @@ export interface WorldviousFeedbackQuestion {
 }
 export interface WorldviousFeedbackRequest {
     kind: WorldviousNotificationKind;
-    feedbackId: string;
+    id: string;
     questions: WorldviousFeedbackQuestion[];
 }
 export interface WorldviousMessageData {
@@ -45,7 +45,7 @@ export interface WorldviousMessageData {
     content: string;
 }
 export interface WorldviousFeedbackSubmitData {
-    feedbackId: string;
+    id: string;
     answers: WorldviousAnswer[];
 }
 export type WorldviousAnswer = {
