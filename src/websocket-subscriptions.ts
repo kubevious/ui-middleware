@@ -14,5 +14,7 @@ export enum WebSocketKind
     markers_statuses = 'markers-statuses',
     marker_result = 'marker-result',
 
-    cluster_reporting_status = 'cluster_reporting_status'
+    cluster_reporting_status = 'cluster_reporting_status',
+
+    worldvious_updates = 'worldvious_updates'
 }
