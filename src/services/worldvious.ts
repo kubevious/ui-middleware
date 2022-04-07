@@ -65,7 +65,7 @@ export type WorldviousAnswer = {
 export interface WorldviousFeedbackSnoozeData {
     kind: WorldviousNotificationKind;
     id: string;
-    days: number;
+    days?: number | null;
 }
 
 export declare type WorldviousNotificationItem = 
