@@ -7,6 +7,7 @@ export { IRuleService } from './services/rule'
 export { IWorldviousService } from './services/worldvious'
 export { IHistoryService } from './services/history'
 export { IBackendStatusService, BackendMetricItem, BackendMetricsResponse, BackendVersionResponse } from './services/backend-status-service';
+export { IDeveloperService } from './services/developer';
 
 export { IValidatorConfigService } from './services/validator-config'
 export { IClusterReportingStatusService, ClusterReportingStatus } from './services/cluster-reporting-status'
