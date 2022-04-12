@@ -58,6 +58,7 @@ export interface IMarkerService extends IService {
     getItemStatuses: () => Promise<MarkerStatus[]>;
     getItemResult: (name: string) => Promise<MarkerResult>;
 
+    subscribeMarkers: (cb: (items: MarkerListItem[]) => void) => void;
     subscribeItemStatuses: (cb: (items: MarkerStatus[]) => void) => void;
     subscribeItemResult: (cb: (result: MarkerResult) => void) => MarkerResultSubscriber;
 }
