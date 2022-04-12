@@ -41,10 +41,9 @@ export interface MarkerResult {
 };
 
 
-export interface MarkerResultSubscriber
+export interface MarkerResultSubscriber extends IService
 { 
-    update: (markerName : string | null) => void,
-    close: () => void
+    update: (markerName : string | null) => void;
 }
 
 export interface IMarkerService extends IService {
@@ -58,7 +57,7 @@ export interface IMarkerService extends IService {
     getItemStatuses: () => Promise<MarkerStatus[]>;
     getItemResult: (name: string) => Promise<MarkerResult>;
 
-    subscribeMarkers: (cb: (items: MarkerListItem[]) => void) => void;
-    subscribeItemStatuses: (cb: (items: MarkerStatus[]) => void) => void;
+    subscribeMarkers: (cb: (items: MarkerListItem[]) => void) => IService;
+    subscribeItemStatuses: (cb: (items: MarkerStatus[]) => void) => IService;
     subscribeItemResult: (cb: (result: MarkerResult) => void) => MarkerResultSubscriber;
 }
