@@ -12,13 +12,13 @@ export interface RuleConfig {
     enabled: boolean;
 }
 
-export interface RulesExportData {
+export interface RulesExportData<TRuleConfig = RuleConfig> {
     kind: 'rules',
-    items: RuleConfig[]
+    items: TRuleConfig[]
 }
 
-export interface RulesImportData {
-    data: RulesExportData,
+export interface RulesImportData<TRuleConfig = RuleConfig> {
+    data: RulesExportData<TRuleConfig>,
     deleteExtra?: boolean
 }
 
@@ -66,8 +66,8 @@ export interface IRuleService<TRuleConfig extends RuleConfig = RuleConfig> exten
     getItem: (name: string) => Promise<TRuleConfig | null>;
     createItem: (config: TRuleConfig, name: string) => Promise<TRuleConfig>;
     deleteItem: (name: string) => Promise<void>;
-    exportItems: () => Promise<RulesExportData>;
-    importItems: (data: RulesImportData) => Promise<void>;
+    exportItems: () => Promise<RulesExportData<TRuleConfig>>;
+    importItems: (data: RulesImportData<TRuleConfig>) => Promise<void>;
 
     getItemStatuses: () => Promise<RuleStatus[]>;
     getItemResult: (name: string) => Promise<RuleResult>;
