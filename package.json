@@ -17,7 +17,7 @@
   "author": "Ruben Hakopian <ruben.hakopian@gmail.com>",
   "license": "Apache-2.0",
   "dependencies": {
-    "@kubevious/entity-meta": "^1.0.56",
+    "@kubevious/entity-meta": "^1.0.67",
     "@kubevious/http-client": "^1.0.19",
     "the-promise": "^2.0.13"
   },
@@ -36,7 +36,7 @@
   },
   "resolutions": {
     "the-promise": "^2.0.13",
-    "@kubevious/entity-meta": "^1.0.56",
+    "@kubevious/entity-meta": "^1.0.67",
     "@kubevious/http-client": "^1.0.19"
   }
 }
