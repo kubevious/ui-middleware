@@ -23,3 +23,17 @@ export interface ValidationStateAlerts
     errors: number,
     warnings: number,
 }
+
+export interface ChangePackageDeletion
+{
+    apiVersion: string,
+    kind: string,
+    namespace?: string,
+    name: string,
+}
+
+export interface ChangePackageChart
+{
+    namespace: string,
+    name: string,
+}
