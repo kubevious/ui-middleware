@@ -45,3 +45,9 @@ export enum ValidationState {
     failed = 'failed',
     completed = 'completed',
 }
+
+export interface ChangePackageSummary
+{
+    createdCount: number,
+    deletedCount: number,
+}

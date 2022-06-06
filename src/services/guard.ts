@@ -1,14 +1,19 @@
 import { IService } from '../common-types'
-import { ValidationIssues, ValidationStateSummary, ChangePackageChart, ChangePackageDeletion, ValidationState } from '../entities/guard';
+import { ValidationIssues,
+         ChangePackageSummary,
+         ValidationStateSummary,
+         ChangePackageChart,
+         ChangePackageDeletion,
+         ValidationState } from '../entities/guard';
 import { KubernetesObject } from '../entities/k8s';
 
 export interface ChangePackageListItem {
     change_id: string,
     date: string,
     state: ValidationState,
+    changeSummary?: ChangePackageSummary,
     success?: boolean,
-    summary?: ValidationStateSummary
-
+    validationSummary?: ValidationStateSummary
 }
 
 export interface ChangePackageItemDetails {
