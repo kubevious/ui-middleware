@@ -26,7 +26,15 @@ export interface ChangePackageItemDetails {
     clearedIssues?: ValidationIssues,
 }
 
+export interface ChangePackageListResult
+{
+    totalCount: number,
+    nextId?: string,
+    items: ChangePackageListItem[],
+}
+
 export interface IGuardService extends IService {
-    getItems(lastId?: string) : Promise<ChangePackageListItem[]>;
+    getItems(lastId?: string) : Promise<ChangePackageListResult>;
     getDetails(id: string) : Promise<ChangePackageItemDetails | null>;
 }
+
