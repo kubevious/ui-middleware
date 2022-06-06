@@ -13,3 +13,6 @@ export { IValidatorConfigService } from './services/validator-config'
 export { IClusterReportingStatusService, ClusterReportingStatus } from './services/cluster-reporting-status'
 
 export { WebSocketKind } from './websocket-subscriptions';
+
+
+export { KubernetesObject } from './entities/k8s';
