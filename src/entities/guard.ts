@@ -37,3 +37,11 @@ export interface ChangePackageChart
     namespace: string,
     name: string,
 }
+
+export enum ValidationState {
+    pending = 'pending',
+    scheduling = 'scheduling',
+    running = 'running',
+    failed = 'failed',
+    completed = 'completed',
+}
