@@ -11,7 +11,7 @@ export interface ChangePackageListItem {
     change_id: string,
     date: string,
     state: ValidationState,
-    changeSummary?: ChangePackageSummary,
+    changeSummary: ChangePackageSummary,
     success?: boolean,
     validationSummary?: ValidationStateSummary
 }
@@ -22,6 +22,7 @@ export interface ChangePackageItemDetails {
     state: ValidationState,
     success?: boolean,
     
+    changeSummary: ChangePackageSummary,
     charts: ChangePackageChart[],
     changes: KubernetesObject[],
     deletions: ChangePackageDeletion[],
