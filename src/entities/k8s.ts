@@ -4,8 +4,8 @@ export interface KubernetesObject {
     metadata: {
         name: string;
         namespace?: string;
-        labels?: Record<string, string>;
-        annotations?: Record<string, string>;
+        labels?: Record<string, string> | null;
+        annotations?: Record<string, string> | null;
         [x: string]: any;
     };
     spec?: any;

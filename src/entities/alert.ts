@@ -5,11 +5,11 @@ export interface Alert {
     source?: AlertSource;
 }
 
-export declare type AlertSource = {
+export type AlertSource = {
     kind?: AlertSourceKind;
 } | (AlertValidatorSource | AlertRuleSource);
 
-export declare enum AlertSourceKind {
+export enum AlertSourceKind {
     validator = "validator",
     rule = "rule"
 }
