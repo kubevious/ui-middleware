@@ -1,6 +1,6 @@
 {
   "name": "@kubevious/ui-middleware",
-  "version": "1.0.71",
+  "version": "1.0.72",
   "description": "Kubevious UI Middleware",
   "main": "dist/index.js",
   "types": "dist",
