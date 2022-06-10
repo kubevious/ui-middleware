@@ -28,7 +28,7 @@ export interface ChangePackageItemDetails extends ChangePackageListItem {
 export interface ChangePackageListResult
 {
     totalCount: number,
-    nextId?: string,
+    nextId?: number,
     items: ChangePackageListItem[],
 }
 
