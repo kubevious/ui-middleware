@@ -28,12 +28,12 @@ export interface ChangePackageItemDetails extends ChangePackageListItem {
 export interface ChangePackageListResult
 {
     totalCount: number,
-    nextId?: number,
+    nextToken?: number,
     items: ChangePackageListItem[],
 }
 
 export interface IGuardService extends IService {
-    getItems(lastId?: string) : Promise<ChangePackageListResult>;
-    getDetails(id: string) : Promise<ChangePackageItemDetails | null>;
+    getItems(nextToken?: number) : Promise<ChangePackageListResult>;
+    getDetails(changeId: string) : Promise<ChangePackageItemDetails | null>;
 }
 
