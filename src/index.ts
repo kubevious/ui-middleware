@@ -18,3 +18,5 @@ export { WebSocketKind } from './websocket-subscriptions';
 export { KubernetesObject } from './entities/k8s';
 
 export { Alert, AlertSource, AlertSourceKind, AlertValidatorSource, AlertRuleSource } from './entities/alert'
+
+export { ClusterSummaryPropsConfig } from './entities/summary';
