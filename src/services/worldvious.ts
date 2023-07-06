@@ -1,4 +1,3 @@
-import { Promise } from 'the-promise';
 import { IService } from '../common-types'
 
 export interface IWorldviousService extends IService {
